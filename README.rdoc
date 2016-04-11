@@ -1,11 +1,9 @@
-= SQLite3/Ruby Interface
+= SQLite3/Ruby Interface with embedded SQLite3 library
 
 * https://github.com/sparklemotion/sqlite3-ruby
 * http://groups.google.com/group/sqlite3-ruby
 * http://rubygems.org/gems/sqlite3
 * http://www.rubydoc.info/gems/sqlite3/frames
-
-{<img src="https://travis-ci.org/sparklemotion/sqlite3-ruby.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/sparklemotion/sqlite3-ruby]
 
 == DESCRIPTION
 
@@ -13,7 +11,8 @@ This module allows Ruby programs to interface with the SQLite3
 database engine (http://www.sqlite.org).  You must have the
 SQLite engine installed in order to build this module.
 
-Note that this module is only compatible with SQLite 3.6.16 or newer.
+This module embeds its own SQLite3 library built from the SQLite
+Amalgamation 3.12.1, so it doesn't have any external dependencies
 
 == SYNOPSIS
 
@@ -61,24 +60,11 @@ Note that this module is only compatible with SQLite 3.6.16 or newer.
 
 == Compilation and Installation
 
-Install SQLite3, enabling the option SQLITE_ENABLE_COLUMN_METADATA (see
-www.sqlite.org/compile.html for details).
-
-Then do the following:
+Do the following:
 
   ruby setup.rb config
   ruby setup.rb setup
   ruby setup.rb install
-
-Alternatively, you can download and install the RubyGem package for
-SQLite3/Ruby (you must have RubyGems and SQLite3 installed, first):
-
-  gem install sqlite3
-
-If you have sqlite3 installed in a non-standard location, you can specify the location of the include and lib files by doing:
-
-  gem install sqlite3 -- --with-sqlite3-include=/opt/local/include \
-     --with-sqlite3-lib=/opt/local/lib
 
 = SUPPORT!!!
 

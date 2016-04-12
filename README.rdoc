@@ -12,7 +12,7 @@ database engine (http://www.sqlite.org).  You must have the
 SQLite engine installed in order to build this module.
 
 This module embeds its own SQLite3 library built from the SQLite
-Amalgamation 3.12.1, so it doesn't have any external dependencies
+amalgamation, so it doesn't have any external dependencies
 
 == SYNOPSIS
 

@@ -62,9 +62,8 @@ amalgamation, so it doesn't have any external dependencies
 
 Do the following:
 
-  ruby setup.rb config
-  ruby setup.rb setup
-  ruby setup.rb install
+  gem build sqlite3-static.gemspec
+  gem install sqlite3-static-*.gem
 
 = SUPPORT!!!
 

@@ -1,21 +1,21 @@
 Gem::Specification.new do |s|
   s.name = "sqlite3-static"
-  s.version = "3.12.2"
+  s.version = "3.13.0"
   s.require_paths = ["lib"]
   s.authors = ["Jamis Buck", "Luis Lavena", "Aaron Patterson", "Jesús A. Álvarez"]
-  s.date = "2016-04-19"
+  s.date = "2016-05-19"
   s.description = "SQLite3 bindings with embedded SQLite library."
   s.email = ["jamis@37signals.com", "luislavena@gmail.com", "aaron@tenderlovemaking.com", "zydeco@namedfork.net"]
   s.extensions = ["ext/sqlite3/extconf.rb"]
   s.files = [
     "API_CHANGES.rdoc",
-    "CHANGELOG.rdoc", 
+    "CHANGELOG.rdoc",
     "Manifest.txt",
     "README.rdoc",
     "ext/sqlite3/backup.c",
     "ext/sqlite3/backup.h",
-    "ext/sqlite3/database.c", 
-    "ext/sqlite3/database.h", 
+    "ext/sqlite3/database.c",
+    "ext/sqlite3/database.h",
     "ext/sqlite3/exception.c",
     "ext/sqlite3/exception.h",
     "ext/sqlite3/extconf.rb",

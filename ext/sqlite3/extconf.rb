@@ -6,6 +6,29 @@ require 'mkmf'
 
 RbConfig::MAKEFILE_CONFIG['CC'] = ENV['CC'] if ENV['CC']
 
+
+
+ldflags = cppflags = nil
+if RbConfig::CONFIG["host_os"] =~ /darwin/
+  begin
+    brew_prefix = `brew --prefix sqlite3`.chomp
+    ldflags   = "#{brew_prefix}/lib"
+    cppflags  = "#{brew_prefix}/include"
+    pkg_conf  = "#{brew_prefix}/lib/pkgconfig"
+
+    # pkg_config should be less error prone than parsing compiler
+    # commandline options, but we need to set default ldflags and cpp flags
+    # in case the user doesn't have pkg-config installed
+    ENV['PKG_CONFIG_PATH'] ||= pkg_conf
+  rescue
+  end
+end
+
+pkg_config("sqlite3")
+
+# --with-sqlite3-{dir,include,lib}
+dir_config("sqlite3", cppflags, ldflags)
+
 if RbConfig::CONFIG["host_os"] =~ /mswin/
   $CFLAGS << ' -W3'
 end

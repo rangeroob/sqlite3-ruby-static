@@ -1,9 +1,9 @@
 Gem::Specification.new do |s|
   s.name = "sqlite3-static"
-  s.version = "3.14.1"
+  s.version = "3.22.0"
   s.require_paths = ["lib"]
   s.authors = ["Jamis Buck", "Luis Lavena", "Aaron Patterson", "Jesús A. Álvarez"]
-  s.date = "2016-08-16"
+  s.date = "2018-02-22"
   s.description = "SQLite3 bindings with embedded SQLite library."
   s.email = ["jamis@37signals.com", "luislavena@gmail.com", "aaron@tenderlovemaking.com", "zydeco@namedfork.net"]
   s.extensions = ["ext/sqlite3/extconf.rb"]

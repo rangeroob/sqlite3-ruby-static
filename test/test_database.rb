@@ -45,6 +45,14 @@ module SQLite3
       tf.unlink if tf
     end
 
+    def test_error_code
+      begin
+        db.execute 'SELECT'
+      rescue SQLite3::SQLException => e
+      end
+      assert_equal 1, e.code
+    end
+
     def test_bignum
       num = 4907021672125087844
       db.execute 'CREATE TABLE "employees" ("token" integer(8), "name" varchar(20) NOT NULL)'
@@ -384,7 +392,7 @@ module SQLite3
         def call action, a, b, c, d; nil end
       }.new
       stmt = @db.prepare("select 'fooooo'")
-      assert_equal nil, stmt.step
+      assert_nil stmt.step
     end
 
     def test_authorizer_fail

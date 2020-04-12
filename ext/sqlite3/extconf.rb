@@ -49,6 +49,10 @@ if RbConfig::CONFIG["host_os"] =~ /mswin/
   $CFLAGS << ' -W3'
 end
 
+if RUBY_VERSION < '2.7'
+  $CFLAGS << ' -DTAINTING_SUPPORT'
+end
+
 # enable column metadata
 $CFLAGS << ' -DSQLITE_ENABLE_COLUMN_METADATA=1'
 

@@ -29,6 +29,8 @@ if RbConfig::CONFIG["host_os"] =~ /darwin/
   end
 end
 
+have_library 'dl' # for static builds
+
 if with_config('sqlcipher')
   pkg_config("sqlcipher")
 else

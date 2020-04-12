@@ -347,7 +347,7 @@ static VALUE define_function_with_flags(VALUE self, VALUE name, VALUE flags)
  */
 static VALUE define_function(VALUE self, VALUE name)
 {
-  return define_function_with_flags(self, name, SQLITE_UTF8);
+  return define_function_with_flags(self, name, INT2FIX(SQLITE_UTF8));
 }
 
 /* call-seq: interrupt
@@ -795,7 +795,7 @@ void init_sqlite3_database()
   rb_define_method(cSqlite3Database, "define_function_with_flags", define_function_with_flags, 2);
   /* public "define_aggregator" is now a shim around define_aggregator2
    * implemented in Ruby */
-  rb_define_private_method(cSqlite3Database, "define_aggregator2", rb_sqlite3_define_aggregator2, 1);
+  rb_define_private_method(cSqlite3Database, "define_aggregator2", rb_sqlite3_define_aggregator2, 2);
   rb_define_method(cSqlite3Database, "interrupt", interrupt, 0);
   rb_define_method(cSqlite3Database, "errmsg", errmsg, 0);
   rb_define_method(cSqlite3Database, "errcode", errcode_, 0);

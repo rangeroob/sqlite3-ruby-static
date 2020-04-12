@@ -216,7 +216,7 @@ module SQLite3
 
     def test_column_name
       assert_equal "'foo'", @stmt.column_name(0)
-      assert_equal nil, @stmt.column_name(10)
+      assert_nil @stmt.column_name(10)
     end
 
     def test_bind_parameter_count
@@ -243,7 +243,7 @@ module SQLite3
       assert stmt.execute('employee-2')
     end
 
-    def test_clear_bindings
+    def test_clear_bindings!
       stmt = @db.prepare('select ?, ?')
       stmt.bind_param 1, "foo"
       stmt.bind_param 2, "bar"

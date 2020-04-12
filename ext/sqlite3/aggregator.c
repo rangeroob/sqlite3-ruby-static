@@ -128,7 +128,7 @@ rb_sqlite3_aggregator_step(sqlite3_context * ctx, int argc, sqlite3_value **argv
   }
 
   if (argc == 1) {
-    one_param = sqlite3val2rb(argv[i]);
+    one_param = sqlite3val2rb(argv[0]);
     params = &one_param;
   }
   if (argc > 1) {
@@ -203,13 +203,11 @@ rb_sqlite3_aggregator_final(sqlite3_context * ctx)
  * parameter.
  */
 VALUE
-rb_sqlite3_define_aggregator2(VALUE self, VALUE aggregator)
+rb_sqlite3_define_aggregator2(VALUE self, VALUE aggregator, VALUE ruby_name)
 {
   /* define_aggregator is added as a method to SQLite3::Database in database.c */
   sqlite3RubyPtr ctx;
   int arity, status;
-  VALUE ruby_name;
-  const char *name;
   VALUE aw;
   VALUE aggregators;
 
@@ -217,11 +215,6 @@ rb_sqlite3_define_aggregator2(VALUE self, VALUE aggregator)
   if (!ctx->db) {
     rb_raise(rb_path2class("SQLite3::Exception"), "cannot use a closed database");
   }
-
-  /* aggregator is typically a class and testing for :name or :new in class
-   * is a bit pointless */
-
-  ruby_name = rb_funcall(aggregator, rb_intern("name"), 0);
 
   if (rb_respond_to(aggregator, rb_intern("arity"))) {
     VALUE ruby_arity = rb_funcall(aggregator, rb_intern("arity"), 0);
@@ -244,15 +237,13 @@ rb_sqlite3_define_aggregator2(VALUE self, VALUE aggregator)
   }
   aggregators = rb_iv_get(self, "-aggregators");
 
-  name = StringValueCStr(ruby_name);
-
   aw = rb_class_new_instance(0, NULL, cAggregatorWrapper);
   rb_iv_set(aw, "-handler_klass", aggregator);
   rb_iv_set(aw, "-instances", rb_ary_new());
 
   status = sqlite3_create_function(
     ctx->db,
-    name,
+    StringValueCStr(ruby_name),
     arity,
     SQLITE_UTF8,
     (void*)aw,

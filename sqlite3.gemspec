@@ -4,7 +4,7 @@
 
 Gem::Specification.new do |s|
   s.name = "sqlite3".freeze
-  s.version = "1.4.2.20200412165500.static.3.22"
+  s.version = "1.4.2.20200412165500.3.22"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.3.5".freeze) if s.respond_to? :required_rubygems_version=
   s.metadata = { "msys2_mingw_dependencies" => "sqlite3" } if s.respond_to? :metadata=

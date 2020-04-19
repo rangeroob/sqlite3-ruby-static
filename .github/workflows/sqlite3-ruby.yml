@@ -23,8 +23,8 @@ jobs:
 
       - name: install
         run:  bundle install --jobs 4 --retry 3
-      - name: bundle exec rake compile
-        run:  rake compile
+      - name: rake compile
+        run:  bundle exec rake compile
       - name: test
         run:  bundle exec rake test
 
@@ -49,6 +49,6 @@ jobs:
       - name: install
         run:  bundle install --jobs 4 --retry 3
       - name: compile msys2
-        run:  bundle exec rake compile:sqlite3 native
+        run:  bundle exec rake compile:sqlite3_native
       - name: test
         run:  bundle exec rake test

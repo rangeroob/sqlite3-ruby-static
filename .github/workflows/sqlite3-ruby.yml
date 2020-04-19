@@ -24,9 +24,9 @@ jobs:
       - name: install
         run:  bundle install --jobs 4 --retry 3
       - name: compile
-        run:  bundle exec rake compile
+        run:  rake compile
       - name: test
-        run:  bundle exec rake test
+        run:  rake test
 
   Win:
     timeout-minutes: 10

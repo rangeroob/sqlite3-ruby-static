@@ -20,6 +20,7 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
           apt-get: libsqlite3-dev
+          brew: sqlite3
 
       - name: install
         run:  bundle install --jobs 4 --retry 3

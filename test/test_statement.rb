@@ -11,7 +11,7 @@ module SQLite3
       @db.execute 'CREATE TABLE "things" ("number" float NOT NULL)'
 
       stmt = @db.prepare 'INSERT INTO things (number) VALUES (?)'
-      assert_raises(SQLite3::ConstraintException) { stmt.execute(nil) }
+      assert_raises(SQLite3::SQLException) { stmt.execute(nil) }
 
       stmt.close
 
@@ -29,7 +29,7 @@ module SQLite3
       stmt = @db.prepare("INSERT INTO things(name) VALUES(?)")
       stmt.execute('ruby')
 
-      exception = assert_raises(SQLite3::ConstraintException) { stmt.execute('ruby') }
+      exception = assert_raises(SQLite3::SQLException) { stmt.execute('ruby') }
       # SQLite 3.8.2 returns new error message:
       #   UNIQUE constraint failed: *table_name*.*column_name*
       # Older versions of SQLite return:

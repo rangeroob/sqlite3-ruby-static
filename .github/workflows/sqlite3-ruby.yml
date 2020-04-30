@@ -19,7 +19,6 @@ jobs:
         uses: MSP-Greg/setup-ruby-pkgs@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-          apt-get: libsqlite3-dev
 
       - name: install
         run:  bundle install --jobs 4 --retry 3
@@ -44,7 +43,6 @@ jobs:
         uses: MSP-Greg/setup-ruby-pkgs@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-          mingw: sqlite3
 
       - name: install
         run:  bundle install --jobs 4 --retry 3

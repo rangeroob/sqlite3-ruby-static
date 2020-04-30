@@ -28,7 +28,7 @@ module SQLite3
 
     def test_insert_readonly_database
       @db = SQLite3::Database.new('test-readonly.db', :readonly => true)
-      assert_raise(SQLite3::ReadOnlyException) do
+      assert_raise(SQLite3::SQLException) do
         @db.execute("INSERT INTO foos (id) VALUES (12)")
       end
     end

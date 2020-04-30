@@ -58,9 +58,9 @@ module SQLite3
       db.execute 'CREATE TABLE "employees" ("token" integer NOT NULL)'
       begin
         db.execute 'INSERT INTO employees (token) VALUES (NULL)'
-      rescue SQLite3::ConstraintException => e
+      rescue SQLite3::SQLException => e
       end
-      assert_equal 1299, e.code
+      assert_equal 1, e.code
     end
 
     def test_bignum

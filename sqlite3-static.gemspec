@@ -12,6 +12,8 @@ Gem::Specification.new do |s|
     "CHANGELOG.rdoc",
     "Manifest.txt",
     "README.rdoc",
+    "ext/sqlite3/aggregator.c",
+    "ext/sqlite3/aggregator.h",
     "ext/sqlite3/backup.c",
     "ext/sqlite3/backup.h",
     "ext/sqlite3/database.c",

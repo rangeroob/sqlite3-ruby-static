@@ -473,7 +473,7 @@ class TC_Database_Integration < SQLite3::TestCase
     @db.transaction 
     @db.execute('create table bar (x CHECK(1 = 0))')
     assert @db.transaction_active?
-    assert_raises( SQLite3::SQLException ) do
+    assert_raises( SQLite3::ConstraintException ) do
       @db.execute("insert or rollback into bar (x) VALUES ('x')")
     end
     assert !@db.transaction_active?
@@ -485,7 +485,7 @@ class TC_Database_Integration < SQLite3::TestCase
       func.result = x
     end
 
-    assert_raise( SQLite3::SQLException ) do
+    assert_raise( SQLite3::InterruptException ) do
       @db.execute "select abort(a) from foo"
     end
   end

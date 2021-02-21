@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib".freeze]
   s.authors = ["Jamis Buck".freeze, "Luis Lavena".freeze, "Aaron Patterson".freeze, "Jesús A. Álvarez".freeze, "Derek Viera".freeze]
   s.date = "2020-04-12"
-  s.description = "SQLite3 bindings with statically linked (embedded) SQLite library.".freeze
+  s.description = "This module allows Ruby programs to interface with the SQLite3 database engine (www.sqlite.org). This module embeds its own SQLite3 library built from the SQLite amalgamation, so it doesn't have any external dependencies".freeze
   s.email = ["jamis@37signals.com".freeze, "luislavena@gmail.com".freeze, "aaron@tenderlovemaking.com".freeze]
   s.extensions = ["ext/sqlite3/extconf.rb".freeze]
   s.extra_rdoc_files = ["API_CHANGES.rdoc".freeze, "CHANGELOG.rdoc".freeze, "Manifest.txt".freeze, "README.rdoc".freeze, "API_CHANGES.rdoc".freeze, "CHANGELOG.rdoc".freeze, "README.rdoc".freeze, "ext/sqlite3/aggregator.c".freeze, "ext/sqlite3/backup.c".freeze, "ext/sqlite3/database.c".freeze, "ext/sqlite3/exception.c".freeze, "ext/sqlite3/sqlite3.c".freeze, "ext/sqlite3/sqlite3_core.c".freeze, "ext/sqlite3/statement.c".freeze]

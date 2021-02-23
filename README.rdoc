@@ -64,6 +64,16 @@ Or to build the gem under the sqlite3 name:
 
   gem build sqlite3.gemspec
   gem install sqlite3-*.gem
+
+To install with commandline:
+
+  gem install sqlite3-ruby-static --version "[Type version number here]" --source "https://rubygems.pkg.github.com/rangeroob"
+
+To install with Gemfile:
+
+  source "https://rubygems.pkg.github.com/rangeroob" do
+  gem "sqlite3-ruby-static", "[Type version number here]"
+  end
   
 == Use with Rails 
 

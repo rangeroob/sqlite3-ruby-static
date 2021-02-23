@@ -13,3 +13,5 @@ ports
 InstalledFiles
 Makefile
 Gemfile.lock
+.gem
+.gemrc

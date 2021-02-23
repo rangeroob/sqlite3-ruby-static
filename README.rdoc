@@ -1,22 +1,13 @@
 = SQLite3/Ruby Interface with embedded SQLite3 library
 
-* https://github.com/sparklemotion/sqlite3-ruby
-* http://groups.google.com/group/sqlite3-ruby
-* http://rubygems.org/gems/sqlite3
-* http://www.rubydoc.info/gems/sqlite3/frames
+* https://github.com/rangeroob/sqlite3-ruby-static
 
 == DESCRIPTION
-
-This module allows Ruby programs to interface with the SQLite3
-database engine (http://www.sqlite.org).  You must have the
-SQLite engine installed in order to build this module.
-
-This module embeds its own SQLite3 library built from the SQLite
-amalgamation, so it doesn't have any external dependencies
+This module allows Ruby programs to interface with the SQLite3 database engine (www.sqlite.org). This module embeds its own SQLite3 library built from the SQLite amalgamation, so it doesn't have any external dependencies
 
 == SYNOPSIS
 
-  require "sqlite3"
+  require "sqlite3-ruby-static"
   
   # Open a database
   db = SQLite3::Database.new "test.db"
@@ -64,16 +55,41 @@ amalgamation, so it doesn't have any external dependencies
 
 == Compilation and Installation
 
-Do the following:
+To build the gem do the following:
 
-  gem build sqlite3-static.gemspec
-  gem install sqlite3-static-*.gem
+  gem build sqlite3-ruby-static.gemspec
+  gem install sqlite3-ruby-static-*.gem
+  
+Or to build the gem under the sqlite3 name:
 
-= SUPPORT!!!
+  gem build sqlite3.gemspec
+  gem install sqlite3-*.gem
+
+To install with commandline:
+
+  gem install sqlite3-ruby-static --version "[Type version number here]" --source "https://rubygems.pkg.github.com/rangeroob"
+
+To install with Gemfile:
+
+  source "https://rubygems.pkg.github.com/rangeroob" do
+  gem "sqlite3-ruby-static", "[Type version number here]"
+  end
+  
+== Use with Rails 
+
+To use this library with Ruby on Rails put this in the Gemfile:
+
+  gem 'sqlite3', git: 'https://github.com/rangeroob/sqlite3-ruby-static', tag: 'v1.4.2.20200412165500.3.22'
+  # You can use branch (ie: master), ref, tag (ie: like the example above).
+  
+This should make Ruby on Rails think it is using the sqlite3 gem (which Ruby on Rails has a hard dependency on).
+
+= SUPPORT
 
 == OMG!  Something has gone wrong!  Where do I get help?
 
-The best place to get help is from the
+If you ran into any issue please open an issue {here}[https://github.com/rangeroob/sqlite3-ruby-static/issues] (https://github.com/rangeroob/sqlite3-ruby-static/issues) and I with try my best to help you out. If we determine that the issue is in upstream then
+the best place to get help is from the
 {sqlite3-ruby mailing list}[http://groups.google.com/group/sqlite3-ruby] which
 can be found here:
 
@@ -81,23 +97,17 @@ can be found here:
 
 == I've found a bug!  Where do I file it?
 
-Uh oh.  After contacting the mailing list, you've found that you've actually
-discovered a bug.  You can file the bug at the
-{github issues page}[https://github.com/sparklemotion/sqlite3-ruby/issues]
-which can be found here:
-
-  * https://github.com/sparklemotion/sqlite3-ruby/issues
+If you found a bug and it is determined to be just affect this fork please file a bug report under the {github issues}[https://github.com/rangeroob/sqlite3-ruby-static/issues] (https://github.com/rangeroob/sqlite3-ruby-static/issues).
 
 == Usage
 
 For help figuring out the SQLite3/Ruby interface, check out the
 SYNOPSIS as well as the RDoc. It includes examples of
-usage. If you have any questions that you feel should be addressed in the
-FAQ, please send them to {the mailing list}[http://groups.google.com/group/sqlite3-ruby]
+usage.
 
 == Source Code
 
 The source repository is accessible via git:
 
-  git clone git://github.com/sparklemotion/sqlite3-ruby.git
+  git clone git@github.com:rangeroob/sqlite3-ruby-static.git
 
